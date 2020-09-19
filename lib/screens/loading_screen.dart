@@ -15,16 +15,6 @@ class _LoadingScreenState extends State<LoadingScreen> {
     getLocation();
   }
 
-  void getLocation() async {
-    try {
-      Position position =
-          await getCurrentPosition(desiredAccuracy: LocationAccuracy.low);
-      print(position);
-    } catch (e) {
-      print(e);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
