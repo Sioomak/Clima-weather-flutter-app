@@ -3,14 +3,26 @@ import 'package:geolocator/geolocator.dart';
 
 class LoadingScreen extends StatefulWidget {
   @override
-  _LoadingScreenState createState() => _LoadingScreenState();
+  _LoadingScreenState createState() {
+    return _LoadingScreenState();
+  }
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
+  @override
+  void initState() {
+    super.initState();
+    getLocation();
+  }
+
   void getLocation() async {
-    Position position =
-        await getCurrentPosition(desiredAccuracy: LocationAccuracy.low);
-    print(position);
+    try {
+      Position position =
+          await getCurrentPosition(desiredAccuracy: LocationAccuracy.low);
+      print(position);
+    } catch (e) {
+      print(e);
+    }
   }
 
   @override
